@@ -1,9 +1,6 @@
-# PassForge
-package Projects;
-
 import java.util.Scanner;
 
-public class PasswordStrengthCheckerProject {
+public class PassForge {
 	String pass;
 	Scanner sc = new Scanner(System.in);
 
@@ -21,8 +18,7 @@ public class PasswordStrengthCheckerProject {
 	}
 
 	public void uppercasecheck() {
-		String lower = pass.toLowerCase();
-		if (lower == pass) {
+		if (pass.equals(pass.toLowerCase())) {
 			System.out.println("Password should contain at least one uppercase letter.");
 		} else {
 			System.out.println("Uppercase character check passed.");
@@ -30,8 +26,7 @@ public class PasswordStrengthCheckerProject {
 	}
 
 	public void lowercasecheck() {
-		String upper = pass.toUpperCase();
-		if (upper == pass) {
+		if (pass.equals(pass.toUpperCase())) {
 			System.out.println("Password should contain at least one lowercase letter.");
 		} else {
 			System.out.println("Lowercase character check passed.");
@@ -76,7 +71,7 @@ public class PasswordStrengthCheckerProject {
 	}
 
 	public static void main(String[] args) {
-		PasswordStrengthCheckerProject checker = new PasswordStrengthCheckerProject();
+		PassForge checker = new PassForge();
 		checker.initial();
 		checker.length();
 		checker.uppercasecheck();
