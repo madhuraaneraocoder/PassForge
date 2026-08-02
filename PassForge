@@ -1,0 +1,87 @@
+# PassForge
+package Projects;
+
+import java.util.Scanner;
+
+public class PasswordStrengthCheckerProject {
+	String pass;
+	Scanner sc = new Scanner(System.in);
+
+	public void initial() {
+		System.out.println("Welcome to the Password Strength Checker! Please enter your password:");
+		pass = sc.nextLine();
+	}
+
+	public void length() {
+		if (pass.length() < 8) {
+			System.out.println("Password length is short! At least 8 characters are recommended.");
+		} else {
+			System.out.println("Password length is sufficient.");
+		}
+	}
+
+	public void uppercasecheck() {
+		String lower = pass.toLowerCase();
+		if (lower == pass) {
+			System.out.println("Password should contain at least one uppercase letter.");
+		} else {
+			System.out.println("Uppercase character check passed.");
+		}
+	}
+
+	public void lowercasecheck() {
+		String upper = pass.toUpperCase();
+		if (upper == pass) {
+			System.out.println("Password should contain at least one lowercase letter.");
+		} else {
+			System.out.println("Lowercase character check passed.");
+		}
+	}
+
+	public void digitcheck() {
+		boolean hasDigit = false;
+		String digits = "0123456789";
+
+		for (int i = 0; i < digits.length(); i++) {
+			String d = String.valueOf(digits.charAt(i));
+			if (pass.contains(d)) {
+				hasDigit = true;
+				break;
+			}
+		}
+		if (hasDigit) {
+			System.out.println("Digit check passed.");
+		} else {
+			System.out.println("Password should contain at least one digit.");
+		}
+	}
+
+	public void specialcheck() {
+		boolean hasSpecial = false;
+		String specialChars = "!@#$%^&*()-_+=";
+
+		for (int i = 0; i < specialChars.length(); i++) {
+			String s = String.valueOf(specialChars.charAt(i));
+			if (pass.contains(s)) {
+				hasSpecial = true;
+				break;
+			}
+		}
+
+		if (hasSpecial) {
+			System.out.println("Special character check passed.");
+		} else {
+			System.out.println("Password should contain at least one special character.");
+		}
+	}
+
+	public static void main(String[] args) {
+		PasswordStrengthCheckerProject checker = new PasswordStrengthCheckerProject();
+		checker.initial();
+		checker.length();
+		checker.uppercasecheck();
+		checker.lowercasecheck();
+		checker.digitcheck();
+		checker.specialcheck();
+	}
+}
